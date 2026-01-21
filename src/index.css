@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-primary text-textPrimary;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-secondary rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:bg-red-700 hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-textPrimary font-semibold px-6 py-3 rounded-lg border border-textSecondary transition-all duration-300 hover:border-accent hover:text-accent;
+  }
+
+  .container-app {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .backdrop-blur-custom {
+    backdrop-filter: blur(10px);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
