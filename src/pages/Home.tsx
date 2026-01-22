@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useMovies } from '../hooks/useMovies';
 import { useUpcomingMovies } from '../hooks/useUpcomingMovies';
 import MovieCard from '../components/MovieCard';
@@ -8,7 +8,60 @@ import EmptyState from '../components/EmptyState';
 
 const Home: React.FC = () => {
   const { movies, loading, error, loadMore, hasMore } = useMovies();
-  const { movies: upcomingMovies, loading: upcomingLoading, loadMore: loadMoreUpcoming, hasMore: hasMoreUpcoming } = useUpcomingMovies();
+  const { movies: upcomingMovies, loading: upcomingLoading } = useUpcomingMovies();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const autoPlayRef = useRef<NodeJS.Timeout>();
+
+  // Responsivo: número de cards por visualização
+  const [itemsPerView, setItemsPerView] = useState(5);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setItemsPerView(2); // Mobile: 2 cards
+      } else if (window.innerWidth < 1024) {
+        setItemsPerView(3); // Tablet: 3 cards
+      } else {
+        setItemsPerView(5); // Desktop: 5 cards
+      }
+    };
+
+    handleResize(); // Executar na montagem
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const totalItems = upcomingMovies.length;
+  const maxIndex = Math.max(0, totalItems - itemsPerView);
+
+  // Autoplay do carrossel
+  useEffect(() => {
+    if (upcomingMovies.length === 0) return;
+
+    autoPlayRef.current = setInterval(() => {
+      setCurrentIndex((prev) => {
+        const next = prev + 1;
+        return next > maxIndex ? 0 : next;
+      });
+    }, 4000); // Muda a cada 4 segundos
+
+    return () => {
+      if (autoPlayRef.current) {
+        clearInterval(autoPlayRef.current);
+      }
+    };
+  }, [upcomingMovies.length, maxIndex]);
+
+  const handlePrev = () => {
+    if (autoPlayRef.current) clearInterval(autoPlayRef.current);
+    setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
+  };
+
+  const handleNext = () => {
+    if (autoPlayRef.current) clearInterval(autoPlayRef.current);
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  };
 
   if (loading && movies.length === 0) {
     return <Loader fullScreen />;
@@ -79,32 +132,67 @@ const Home: React.FC = () => {
           {upcomingLoading && upcomingMovies.length === 0 ? (
             <Loader size="medium" />
           ) : (
-            <>
-              <div className="relative">
-                <div className="overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
-                  <div className="flex gap-4 md:gap-6" style={{ width: 'max-content' }}>
-                    {upcomingMovies.map((movie) => (
-                      <div key={movie.id} className="w-40 sm:w-48 flex-shrink-0">
+            <div className="relative group">
+              {/* Botão Anterior */}
+              <button
+                onClick={handlePrev}
+                className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-secondary/90 hover:bg-accent text-white p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-4 group-hover:translate-x-0"
+                aria-label="Anterior"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+
+              {/* Carrossel */}
+              <div className="overflow-hidden -mx-4 px-4 md:mx-0 md:px-0">
+                <div
+                  ref={carouselRef}
+                  className="flex gap-3 md:gap-6 transition-transform duration-500 ease-in-out"
+                  style={{
+                    transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`,
+                  }}
+                >
+                  {upcomingMovies.map((movie) => (
+                    <div
+                      key={movie.id}
+                      className="flex-shrink-0"
+                      style={{ width: `calc(${100 / itemsPerView}% - ${(itemsPerView - 1) * (window.innerWidth < 768 ? 0.75 : 1.5) / itemsPerView}rem)` }}
+                    >
                       <MovieCard movie={movie} showFullDate />
-                      </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Load More Button for Upcoming */}
-              {hasMoreUpcoming && (
-                <div className="flex justify-center mt-8">
-                  {upcomingLoading ? (
-                    <Loader size="medium" />
-                  ) : (
-                    <button onClick={loadMoreUpcoming} className="btn-secondary">
-                      Ver mais lançamentos
-                    </button>
-                  )}
-                </div>
-              )}
-            </>
+              {/* Botão Próximo */}
+              <button
+                onClick={handleNext}
+                className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-secondary/90 hover:bg-accent text-white p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0"
+                aria-label="Próximo"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+
+              {/* Indicadores */}
+              <div className="flex justify-center gap-2 mt-6">
+                {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      if (autoPlayRef.current) clearInterval(autoPlayRef.current);
+                      setCurrentIndex(index);
+                    }}
+                    className={`h-1.5 md:h-2 rounded-full transition-all duration-300 ${
+                      index === currentIndex ? 'w-6 md:w-8 bg-accent' : 'w-1.5 md:w-2 bg-gray-600 hover:bg-gray-500'
+                    }`}
+                    aria-label={`Ir para página ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
           )}
         </div>
       )}
