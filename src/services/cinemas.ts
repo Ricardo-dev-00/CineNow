@@ -1,9 +1,7 @@
-import { CityData, Cinema } from '../types';
-import { searchRealCinemas } from './googlePlaces';
+import { CityData } from '../types';
 
 /**
- * Base de dados MOCK de cinemas por cidade
- * Usado como fallback quando a API do Google Places não está disponível
+ * Base de dados de cinemas por cidade
  */
 export const cinemasDatabase: Record<string, CityData> = {
   'São Paulo-SP': {
@@ -217,19 +215,6 @@ export const cinemasDatabase: Record<string, CityData> = {
 
 export const getCinemasByCity = async (cityKey: string): Promise<CityData | null> => {
   const [city, state] = cityKey.split('-');
-  
-  // Primeiro tenta buscar cinemas reais via Google Places API
-  const realCinemas = await searchRealCinemas(city, state);
-  
-  if (realCinemas.length > 0) {
-    return {
-      name: city,
-      state: state,
-      cinemas: realCinemas,
-    };
-  }
-  
-  // Fallback para dados mock se a API falhar
   return cinemasDatabase[cityKey] || null;
 };
 
