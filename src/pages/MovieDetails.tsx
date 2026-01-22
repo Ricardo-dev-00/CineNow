@@ -22,7 +22,7 @@ const MovieDetails: React.FC = () => {
   // Carrossel de filmes em cartaz
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
-  const autoPlayRef = useRef<NodeJS.Timeout>();
+  const autoPlayRef = useRef<number>();
   const [itemsPerView, setItemsPerView] = useState(5);
 
   // Filtrar filme atual da lista

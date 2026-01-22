@@ -11,7 +11,7 @@ const Home: React.FC = () => {
   const { movies: upcomingMovies, loading: upcomingLoading } = useUpcomingMovies();
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
-  const autoPlayRef = useRef<NodeJS.Timeout>();
+  const autoPlayRef = useRef<number>();
 
   // Responsivo: número de cards por visualização
   const [itemsPerView, setItemsPerView] = useState(5);
