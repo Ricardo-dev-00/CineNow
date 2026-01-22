@@ -214,7 +214,6 @@ export const cinemasDatabase: Record<string, CityData> = {
 };
 
 export const getCinemasByCity = async (cityKey: string): Promise<CityData | null> => {
-  const [city, state] = cityKey.split('-');
   return cinemasDatabase[cityKey] || null;
 };
 
