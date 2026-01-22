@@ -137,8 +137,8 @@ const MovieDetails: React.FC = () => {
   const handleWhatsAppShare = () => {
     if (!movie) return;
     
-    // URL de produção fixa
-    const baseUrl = 'https://cine-now-qibf.vercel.app';
+    // URL de produção correta
+    const baseUrl = 'https://cine-now-qibf-8n9pf9un7-ricardo-dev-00s-projects.vercel.app';
     const movieUrl = `${baseUrl}/movie/${movieId}`;
     
     const releaseInfo = movie.release_date ? `\nEstreia: ${formatDate(movie.release_date)}` : '';
