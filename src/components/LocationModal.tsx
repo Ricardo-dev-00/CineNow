@@ -53,7 +53,7 @@ const LocationModal: React.FC<LocationModalProps> = ({ isOpen, onClose, movieTit
     setError('');
 
     navigator.geolocation.getCurrentPosition(
-      async (position) => {
+      async (_position) => {
         try {
           // Em produção, usaria uma API de geocoding reverso
           // Por ora, vamos simular detectando uma cidade padrão
@@ -67,7 +67,7 @@ const LocationModal: React.FC<LocationModalProps> = ({ isOpen, onClose, movieTit
           setLoading(false);
         }
       },
-      (err) => {
+      (_err) => {
         setError('Não foi possível acessar sua localização. Por favor, escolha manualmente.');
         setLoading(false);
       }

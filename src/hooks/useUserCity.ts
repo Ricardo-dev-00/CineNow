@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { UserLocation } from '../types';
 import { saveToLocalStorage, getFromLocalStorage, STORAGE_KEYS } from '../utils/storage';
 
