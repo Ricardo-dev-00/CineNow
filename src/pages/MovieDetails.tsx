@@ -141,9 +141,9 @@ const MovieDetails: React.FC = () => {
     const baseUrl = 'https://cine-now-qibf-8n9pf9un7-ricardo-dev-00s-projects.vercel.app';
     const movieUrl = `${baseUrl}/movie/${movieId}`;
     
-    const releaseInfo = movie.release_date ? `\nEstreia: ${formatDate(movie.release_date)}` : '';
-    const rating = `Nota: ${formatVoteAverage(movie.vote_average)}/10`;
-    const message = `*${movie.title}*${releaseInfo}\n${rating}\n\nConfira o trailer e mais informacoes:\n${movieUrl}`;
+    const releaseInfo = movie.release_date ? `\n📅 Estreia: ${formatDate(movie.release_date)}` : '';
+    const rating = `⭐ Nota: ${formatVoteAverage(movie.vote_average)}/10`;
+    const message = `🎬 ${movie.title}${releaseInfo}\n${rating}\n\nConfira o trailer e mais informações 👇\n${movieUrl}`;
     
     const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
