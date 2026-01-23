@@ -1,10 +1,6 @@
 # 🎬 CineNow - Filmes em Cartaz
 
 <div align="center">
-  <img src="public/og-image.jpg" alt="CineNow Banner" width="100%" />
-  
-  <br />
-  <br />
   
   <img src="https://img.shields.io/badge/React-18.2.0-blue?style=for-the-badge&logo=react" />
   <img src="https://img.shields.io/badge/TypeScript-5.3.3-blue?style=for-the-badge&logo=typescript" />
@@ -451,7 +447,7 @@ Desde que mantenha o aviso de copyright e a licença.
   
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ricardo-vieira-dev/)
   [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ricardo-dev-00)
-  [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white)](https://github.com/Ricardo-dev-00)
+  [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white)](https://projeto-meu-portfolio-snowy.vercel.app/)
   
 </div>
 
