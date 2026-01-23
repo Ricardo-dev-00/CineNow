@@ -1,28 +1,55 @@
 # 🎬 CineNow - Filmes em Cartaz
 
 <div align="center">
+  <img src="public/og-image.jpg" alt="CineNow Banner" width="100%" />
+  
+  <br />
+  <br />
+  
   <img src="https://img.shields.io/badge/React-18.2.0-blue?style=for-the-badge&logo=react" />
   <img src="https://img.shields.io/badge/TypeScript-5.3.3-blue?style=for-the-badge&logo=typescript" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-3.4.1-38B2AC?style=for-the-badge&logo=tailwind-css" />
   <img src="https://img.shields.io/badge/Vite-5.0.11-646CFF?style=for-the-badge&logo=vite" />
+  
+  <br />
+  <br />
+  
+  **🚀 [Ver Demo ao Vivo](https://cine-now-qibf.vercel.app/)**
 </div>
 
 <br />
 
-**CineNow** é uma aplicação Front-End moderna e profissional para visualização de filmes em cartaz nos cinemas, desenvolvida com React, TypeScript e Tailwind CSS. O projeto utiliza a API do **The Movie Database (TMDb)** para exibir informações atualizadas sobre os lançamentos.
+## 📖 Sobre o Projeto
+
+**CineNow** é uma aplicação web moderna e profissional para descobrir e explorar filmes em cartaz nos cinemas. Desenvolvida com as mais recentes tecnologias do ecossistema React, o projeto oferece uma experiência de usuário fluida e elegante, similar às grandes plataformas de streaming.
+
+O projeto consome dados em tempo real da **API do The Movie Database (TMDb)**, garantindo informações sempre atualizadas sobre lançamentos, trailers, avaliações e muito mais.
 
 ---
 
 ## ✨ Funcionalidades
 
-- ✅ **Listagem de filmes em cartaz** - Grid responsivo com paginação
-- ✅ **Detalhes completos do filme** - Sinopse, avaliação, gêneros, duração e data de lançamento
-- ✅ **Trailer incorporado** - Assista ao trailer diretamente na página via YouTube embed
-- ✅ **Sistema de localização inteligente** - Detecta ou permite escolher manualmente a cidade
-- ✅ **Busca de cinemas** - Encontre cinemas próximos com links diretos para horários e ingressos
-- ✅ **100% Responsivo** - Design mobile-first otimizado para todos os dispositivos
-- ✅ **Dark Mode** - Interface elegante e moderna com tema escuro
-- ✅ **Estados visuais** - Loading, error e empty states bem definidos
+### 🎯 Principais Features
+
+- ✅ **Catálogo de Filmes** - Listagem completa de filmes em cartaz e em breve
+- ✅ **Carrosséis Interativos** - Navegação fluida com autoplay e indicadores
+- ✅ **Detalhes Completos** - Sinopse, avaliação, gêneros, duração, elenco e data de lançamento
+- ✅ **Trailers Integrados** - Reprodução de trailers diretamente no site via YouTube
+- ✅ **Sistema de Localização** - Geolocalização automática ou escolha manual de cidade
+- ✅ **Busca de Cinemas** - Encontre cinemas próximos com informações e horários
+- ✅ **Compartilhamento Social** - Compartilhe filmes via WhatsApp
+- ✅ **Open Graph Completo** - Previews otimizados para redes sociais
+- ✅ **100% Responsivo** - Design adaptável para mobile, tablet e desktop
+- ✅ **Dark Mode** - Interface elegante com tema escuro cinematográfico
+
+### 🎨 Experiência do Usuário
+
+- **Design Streaming-Quality** - Inspirado em Netflix, Disney+ e Prime Video
+- **Loading States** - Feedback visual durante carregamento de dados
+- **Error Handling** - Tratamento elegante de erros com opções de retry
+- **Empty States** - Mensagens amigáveis quando não há dados
+- **Scroll to Top** - Navegação otimizada entre páginas
+- **Mobile-First** - Otimizado prioritariamente para dispositivos móveis
 
 ---
 
@@ -42,13 +69,24 @@ Secundário:  #9CA3AF  /* Cinza claro */
 
 ## 🚀 Tecnologias Utilizadas
 
-- **React 18** - Biblioteca JavaScript para interfaces
-- **TypeScript** - Tipagem estática para maior segurança
-- **Tailwind CSS** - Framework CSS utility-first
-- **React Router DOM** - Roteamento client-side
-- **Axios** - Cliente HTTP para requisições à API
-- **Vite** - Build tool ultrarrápida
-- **TMDb API** - Base de dados de filmes
+### Core
+- **[React 18](https://react.dev/)** - Biblioteca JavaScript para interfaces de usuário
+- **[TypeScript 5](https://www.typescriptlang.org/)** - Superset JavaScript com tipagem estática
+- **[Vite 5](https://vitejs.dev/)** - Build tool ultrarrápida para desenvolvimento moderno
+
+### Estilização
+- **[Tailwind CSS 3](https://tailwindcss.com/)** - Framework CSS utility-first
+- **Design System Customizado** - Paleta de cores e componentes próprios
+
+### Roteamento & HTTP
+- **[React Router DOM 6](https://reactrouter.com/)** - Roteamento declarativo para React
+- **[Axios](https://axios-http.com/)** - Cliente HTTP para requisições à API
+
+### Integração
+- **[TMDb API](https://www.themoviedb.org/documentation/api)** - The Movie Database API v3
+
+### Deploy
+- **[Vercel](https://vercel.com/)** - Plataforma de deploy com CI/CD automático
 
 ---
 
@@ -56,40 +94,47 @@ Secundário:  #9CA3AF  /* Cinza claro */
 
 ```
 CineNow/
+├── public/                  # Arquivos públicos estáticos
+│   ├── favicon.svg         # Ícone do site
+│   └── og-image.jpg        # Imagem para Open Graph
 ├── src/
-│   ├── components/          # Componentes reutilizáveis
-│   │   ├── Header.tsx
-│   │   ├── MovieCard.tsx
-│   │   ├── Modal.tsx
-│   │   ├── LocationModal.tsx
-│   │   ├── Loader.tsx
-│   │   ├── ErrorMessage.tsx
-│   │   └── EmptyState.tsx
-│   ├── pages/               # Páginas da aplicação
-│   │   ├── Home.tsx
-│   │   └── MovieDetails.tsx
-│   ├── hooks/               # Custom hooks
-│   │   ├── useMovies.ts
-│   │   ├── useMovieDetails.ts
-│   │   └── useUserCity.ts
-│   ├── services/            # Configuração de APIs
-│   │   ├── api.ts
-│   │   ├── movies.ts
-│   │   └── cinemas.ts
-│   ├── types/               # Tipagens TypeScript
-│   │   └── index.ts
-│   ├── utils/               # Funções utilitárias
-│   │   ├── formatters.ts
-│   │   └── storage.ts
-│   ├── App.tsx              # Componente principal
-│   ├── main.tsx             # Entry point
-│   └── index.css            # Estilos globais
-├── .env.example             # Exemplo de variáveis de ambiente
-├── .gitignore
-├── package.json
-├── tailwind.config.js
-├── tsconfig.json
-└── vite.config.ts
+│   ├── components/         # Componentes reutilizáveis
+│   │   ├── Header.tsx      # Cabeçalho com navegação
+│   │   ├── Footer.tsx      # Rodapé com links e créditos
+│   │   ├── MovieCard.tsx   # Card de filme para listagens
+│   │   ├── Modal.tsx       # Modal genérico reutilizável
+│   │   ├── LocationModal.tsx # Modal de seleção de localização
+│   │   ├── Loader.tsx      # Componente de loading
+│   │   ├── ErrorMessage.tsx # Mensagem de erro
+│   │   └── EmptyState.tsx  # Estado vazio
+│   ├── pages/              # Páginas da aplicação
+│   │   ├── Home.tsx        # Página inicial com carrosséis
+│   │   └── MovieDetails.tsx # Página de detalhes do filme
+│   ├── hooks/              # Custom React Hooks
+│   │   ├── useMovies.ts    # Hook para filmes em cartaz
+│   │   ├── useUpcomingMovies.ts # Hook para próximos lançamentos
+│   │   ├── useMovieDetails.ts # Hook para detalhes do filme
+│   │   └── useUserCity.ts  # Hook para gerenciar cidade do usuário
+│   ├── services/           # Camada de serviços e APIs
+│   │   ├── api.ts          # Configuração base do Axios
+│   │   ├── movies.ts       # Serviço de filmes (TMDb)
+│   │   └── cinemas.ts      # Base de dados de cinemas
+│   ├── types/              # Definições de tipos TypeScript
+│   │   └── index.ts        # Tipos globais e interfaces
+│   ├── utils/              # Funções utilitárias
+│   │   ├── formatters.ts   # Formatação de datas, moedas, etc
+│   │   └── storage.ts      # Wrapper para localStorage
+│   ├── App.tsx             # Componente raiz da aplicação
+│   ├── main.tsx            # Entry point - renderiza o App
+│   └── index.css           # Estilos globais e Tailwind
+├── .env.example            # Template de variáveis de ambiente
+├── .gitignore              # Arquivos ignorados pelo Git
+├── index.html              # HTML base com Open Graph
+├── package.json            # Dependências e scripts
+├── tailwind.config.js      # Configuração do Tailwind CSS
+├── tsconfig.json           # Configuração do TypeScript
+├── vercel.json             # Configuração de rotas para Vercel
+└── vite.config.ts          # Configuração do Vite
 ```
 
 ---
@@ -98,147 +143,334 @@ CineNow/
 
 ### Pré-requisitos
 
-- Node.js 18+ instalado
-- npm ou yarn
+- **Node.js 18+** instalado ([Download](https://nodejs.org/))
+- **npm** ou **yarn** como gerenciador de pacotes
+- **Chave de API do TMDb** ([Obter gratuitamente](https://www.themoviedb.org/settings/api))
 
-### 1. Clone o repositório
+### 1️⃣ Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/cinenow.git
-cd cinenow
+git clone https://github.com/Ricardo-dev-00/CineNow.git
+cd CineNow
 ```
 
-### 2. Instale as dependências
+### 2️⃣ Instale as dependências
 
 ```bash
 npm install
+# ou
+yarn install
 ```
 
-### 3. Configure as variáveis de ambiente
+### 3️⃣ Configure as variáveis de ambiente
 
-Crie um arquivo `.env` na raiz do projeto:
+Crie um arquivo `.env` na raiz do projeto baseado no `.env.example`:
 
 ```bash
 cp .env.example .env
 ```
 
-Obtenha sua chave de API gratuita em [The Movie Database](https://www.themoviedb.org/settings/api) e adicione ao arquivo `.env`:
+Edite o arquivo `.env` e adicione sua chave de API do TMDb:
 
 ```env
 VITE_TMDB_API_KEY=sua_chave_api_aqui
 ```
 
-### 4. Inicie o servidor de desenvolvimento
+### 4️⃣ Inicie o servidor de desenvolvimento
 
 ```bash
 npm run dev
+# ou
+yarn dev
 ```
 
-A aplicação estará disponível em `http://localhost:3000`
+A aplicação estará disponível em **`http://localhost:5173`**
 
-### 5. Build para produção
+### 5️⃣ Build para produção
 
 ```bash
 npm run build
+# ou
+yarn build
+```
+
+Os arquivos otimizados serão gerados na pasta `dist/`
+
+### 6️⃣ Preview do build de produção
+
+```bash
+npm run preview
+# ou
+yarn preview
 ```
 
 ---
 
-## 🌍 Deploy na Vercel
+## 🌍 Deploy
 
-### Deploy Automático
+### Deploy Automático na Vercel (Recomendado)
 
-1. Faça push do código para o GitHub
-2. Acesse [vercel.com](https://vercel.com)
-3. Importe o repositório
-4. Configure a variável de ambiente `VITE_TMDB_API_KEY` no painel da Vercel
-5. Deploy! 🚀
+1. **Fork** este repositório ou faça push para seu GitHub
+2. Acesse [vercel.com](https://vercel.com) e faça login
+3. Clique em **"New Project"**
+4. Importe o repositório do GitHub
+5. Configure a variável de ambiente:
+   - Name: `VITE_TMDB_API_KEY`
+   - Value: Sua chave da API do TMDb
+6. Clique em **"Deploy"**
+7. Pronto! Seu app estará no ar em poucos segundos 🚀
 
-### Deploy via CLI
+### Deploy via CLI da Vercel
 
 ```bash
+# Instale a CLI da Vercel
 npm install -g vercel
+
+# Execute o deploy
 vercel
+
+# Para deploy em produção
+vercel --prod
 ```
 
-**Importante:** Não esqueça de configurar a variável `VITE_TMDB_API_KEY` nas configurações do projeto na Vercel.
+### Outras Plataformas
+
+O projeto é compatível com:
+- **[Netlify](https://www.netlify.com/)**
+- **[GitHub Pages](https://pages.github.com/)**
+- **[Railway](https://railway.app/)**
+- Qualquer serviço que suporte builds estáticos
+
+⚠️ **Importante:** Sempre configure a variável `VITE_TMDB_API_KEY` nas configurações da plataforma escolhida.
 
 ---
 
 ## 📍 Sistema de Localização
 
-O CineNow implementa um **fluxo de UX consciente** para localização:
+O CineNow implementa um **fluxo de UX não invasivo e inteligente** para localização do usuário:
 
-### Como Funciona
+### 🎯 Como Funciona
 
-1. **Não invasivo** - Não solicita localização ao entrar no site
-2. **Contextual** - Solicita localização apenas ao clicar em "Ver horários e cinemas"
-3. **Modal informativo** - Explica claramente porque precisa da localização
-4. **Dupla opção**:
-   - 📍 Usar geolocalização automática
-   - 🏙️ Escolher cidade manualmente
-5. **Confirmação** - Se automático, confirma a cidade detectada
-6. **Persistência** - Salva a cidade escolhida no `localStorage`
-7. **Flexibilidade** - Permite trocar de cidade a qualquer momento
+1. **Contextual** - A localização só é solicitada quando o usuário clica em "Ver horários e cinemas"
+2. **Modal Informativo** - Explica claramente o motivo da solicitação
+3. **Dupla Opção**:
+   - 📍 **Geolocalização Automática** - Usa a API do navegador para detectar
+   - 🏙️ **Escolha Manual** - Lista de cidades disponíveis
+4. **Confirmação** - Se automático, permite confirmar ou trocar a cidade detectada
+5. **Persistência** - Salva a escolha no `localStorage` para próximas visitas
+6. **Flexibilidade** - Permite trocar de cidade a qualquer momento
+7. **Fallback** - Se o usuário negar acesso, oferece seleção manual
 
-### Cinemas Disponíveis
+### 🌆 Cidades Disponíveis
 
-Base local (mock) com cinemas das principais capitais brasileiras:
-- São Paulo - SP
-- Rio de Janeiro - RJ
-- Belo Horizonte - MG
-- Brasília - DF
-- Salvador - BA
-- Curitiba - PR
-- Fortaleza - CE
-- Porto Alegre - RS
+Base de dados com **69 cinemas** em **23 cidades** brasileiras:
+
+| Região | Cidades |
+|--------|---------|
+| **Sudeste** | São Paulo, Rio de Janeiro, Belo Horizonte, Vitória, Campinas |
+| **Sul** | Porto Alegre, Curitiba, Florianópolis |
+| **Nordeste** | Salvador, Fortaleza, Recife, Natal, João Pessoa |
+| **Centro-Oeste** | Brasília, Goiânia, Campo Grande, Cuiabá |
+| **Norte** | Manaus, Belém |
 
 ---
 
-## 🔐 Segurança
+## 🔐 Segurança e Boas Práticas
 
-- ✅ Chave da API armazenada em variáveis de ambiente
-- ✅ `.env` incluído no `.gitignore`
-- ✅ `.env.example` fornecido como template
-- ✅ Validação da presença da API key ao iniciar
-- ✅ Nenhuma informação sensível versionada
+- ✅ **Variáveis de Ambiente** - Chave da API armazenada de forma segura
+- ✅ **Git Ignore** - `.env` incluído no `.gitignore`
+- ✅ **Template Público** - `.env.example` fornecido como referência
+- ✅ **Validação** - Checagem da presença da API key ao iniciar
+- ✅ **HTTPS** - Deploy com certificado SSL automático
+- ✅ **TypeScript** - Tipagem estática previne erros em runtime
+- ✅ **Error Boundaries** - Tratamento robusto de erros
+- ✅ **Code Splitting** - Carregamento otimizado de componentes
 
 ---
 
 ## 🎯 Diferenciais do Projeto
 
-- **Código limpo e organizado** - Arquitetura escalável e bem estruturada
-- **TypeScript em 100%** - Tipagem completa para maior segurança
-- **Componentização eficiente** - Componentes reutilizáveis e desacoplados
-- **Custom Hooks** - Lógica isolada e testável
-- **UX excepcional** - Fluxo de localização não invasivo
-- **Performance otimizada** - Lazy loading de imagens
-- **Acessibilidade** - Semântica HTML correta e ARIA labels
-- **SEO friendly** - Meta tags e structured data
-- **Design moderno** - Interface inspirada em plataformas de streaming
+### 💎 Qualidade de Código
+- **Arquitetura Limpa** - Separação de responsabilidades (components, hooks, services, utils)
+- **TypeScript 100%** - Tipagem completa em todo o projeto
+- **Custom Hooks** - Lógica reutilizável e isolada
+- **Componentização** - Componentes pequenos, reutilizáveis e desacoplados
+- **Convenções** - Seguindo padrões da comunidade React
+
+### 🎨 Design & UX
+- **Streaming-Quality UI** - Interface premium inspirada em plataformas líderes
+- **Micro-interações** - Hover states, transições suaves e feedbacks visuais
+- **Responsividade Total** - Breakpoints otimizados (mobile, tablet, desktop)
+- **Acessibilidade** - ARIA labels e navegação por teclado
+- **Performance** - Lazy loading, otimização de imagens
+
+### 🚀 Funcionalidades Avançadas
+- **Carrosséis Automáticos** - Com controles manuais e indicadores
+- **Open Graph Meta Tags** - Previews bonitos ao compartilhar
+- **Geolocalização** - Integração com API do navegador
+- **Persistência Local** - localStorage para preferências do usuário
+- **SEO Otimizado** - Meta tags e structured data
+
+---
+
+## 📊 Estrutura de Dados
+
+### Movie (Filme)
+
+```typescript
+interface Movie {
+  id: number;
+  title: string;
+  overview: string;
+  poster_path: string;
+  backdrop_path: string;
+  release_date: string;
+  vote_average: number;
+  genre_ids: number[];
+  popularity: number;
+  original_language: string;
+}
+```
+
+### MovieDetails (Detalhes do Filme)
+
+```typescript
+interface MovieDetails extends Movie {
+  runtime: number;
+  genres: Genre[];
+  tagline: string;
+  videos?: {
+    results: Video[];
+  };
+}
+```
+
+### Cinema
+
+```typescript
+interface Cinema {
+  id: number;
+  name: string;
+  address: string;
+  city: string;
+  state: string;
+  ticketUrl: string;
+}
+```
+
+---
+
+## 🛠️ Scripts Disponíveis
+
+```bash
+# Inicia o servidor de desenvolvimento
+npm run dev
+
+# Compila o TypeScript e gera build de produção
+npm run build
+
+# Faz preview do build de produção localmente
+npm run preview
+
+# Compila apenas o TypeScript (verificação de tipos)
+npm run tsc
+
+# Lint do código
+npm run lint
+```
+
+---
+
+## � Screenshots
+
+### 🏠 Home Page
+Carrosséis de filmes em cartaz e próximos lançamentos com navegação automática
+
+### 🎬 Detalhes do Filme
+Página completa com banner hero, trailer, informações e carrossel de filmes relacionados
+
+### 📱 Mobile Responsivo
+Interface otimizada para todos os tamanhos de tela
+
+### 📍 Modal de Localização
+Sistema inteligente de seleção de cidade com geolocalização
+
+---
+
+## 🤝 Contribuindo
+
+Contribuições são sempre bem-vindas! Se você quer contribuir com o projeto:
+
+1. Faça um **Fork** do projeto
+2. Crie uma **branch** para sua feature (`git checkout -b feature/NovaFeature`)
+3. **Commit** suas mudanças (`git commit -m 'Add: Nova feature incrível'`)
+4. Faça **Push** para a branch (`git push origin feature/NovaFeature`)
+5. Abra um **Pull Request**
+
+### Sugestões de Melhorias
+
+- [ ] Sistema de favoritos com localStorage
+- [ ] Filtros por gênero e avaliação
+- [ ] Busca de filmes por título
+- [ ] Integração com API de cinemas real (Ingresso.com)
+- [ ] Sistema de review e comentários
+- [ ] Modo claro (Light mode)
+- [ ] Testes unitários e E2E
+- [ ] PWA (Progressive Web App)
+- [ ] Internacionalização (i18n)
 
 ---
 
 ## 📄 Licença
 
-Este projeto foi desenvolvido para fins educacionais e de portfólio.
+Este projeto foi desenvolvido para fins **educacionais e de portfólio**.
+
+Sinta-se livre para usar como referência ou base para seus próprios projetos.
 
 ---
 
 ## 👨‍💻 Desenvolvedor
 
-**Ricardo** - [GitHub](https://github.com/seu-usuario) | [LinkedIn](https://linkedin.com/in/seu-perfil)
+<div align="center">
+  <img src="https://github.com/Ricardo-dev-00.png" width="150" style="border-radius: 50%;" alt="Ricardo Vieira"/>
+  <br />
+  <br />
+  
+  **Ricardo Vieira**
+  
+  Desenvolvedor Full Stack apaixonado por criar experiências web incríveis
+  
+  <br />
+  
+  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ricardo-vieira-dev/)
+  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ricardo-dev-00)
+  [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white)](https://github.com/Ricardo-dev-00)
+  
+</div>
 
 ---
 
 ## 🙏 Agradecimentos
 
-- [The Movie Database (TMDb)](https://www.themoviedb.org/) - API de filmes
-- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS
-- [Vercel](https://vercel.com/) - Plataforma de deploy
+- **[The Movie Database (TMDb)](https://www.themoviedb.org/)** - Por fornecer uma API incrível e gratuita
+- **[Tailwind CSS](https://tailwindcss.com/)** - Pelo framework CSS que torna estilização um prazer
+- **[Vercel](https://vercel.com/)** - Pela plataforma de deploy simplificada e poderosa
+- **[React Community](https://react.dev/community)** - Por todo o suporte e recursos educacionais
 
 ---
 
 <div align="center">
-  Desenvolvido com ❤️ e ☕ por Ricardo
+  
+  ### ⭐ Se este projeto te ajudou de alguma forma, considere dar uma estrela!
+  
+  <br />
+  
+  **Desenvolvido com ❤️, ☕ e muito 🎬 por [Ricardo Vieira](https://github.com/Ricardo-dev-00)**
+  
+  <br />
+  
+  ---
+  
+  **🚀 [Ver Projeto ao Vivo](https://cine-now-qibf.vercel.app/)** | **📂 [Código Fonte](https://github.com/Ricardo-dev-00/CineNow)**
+  
 </div>
