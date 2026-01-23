@@ -10,6 +10,7 @@
   <img src="https://img.shields.io/badge/TypeScript-5.3.3-blue?style=for-the-badge&logo=typescript" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-3.4.1-38B2AC?style=for-the-badge&logo=tailwind-css" />
   <img src="https://img.shields.io/badge/Vite-5.0.11-646CFF?style=for-the-badge&logo=vite" />
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
   
   <br />
   <br />
@@ -423,9 +424,15 @@ Contribuições são sempre bem-vindas! Se você quer contribuir com o projeto:
 
 ## 📄 Licença
 
-Este projeto foi desenvolvido para fins **educacionais e de portfólio**.
+Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-Sinta-se livre para usar como referência ou base para seus próprios projetos.
+Isso significa que você pode:
+- ✅ Usar comercialmente
+- ✅ Modificar
+- ✅ Distribuir
+- ✅ Uso privado
+
+Desde que mantenha o aviso de copyright e a licença.
 
 ---
 
