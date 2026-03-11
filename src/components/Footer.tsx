@@ -32,20 +32,20 @@ const Footer: React.FC = () => {
             <h3 className="text-textPrimary font-semibold mb-4">Links Rápidos</h3>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="#em-cartaz"
+                <Link
+                  to="/#em-cartaz"
                   className="text-textSecondary hover:text-accent transition-colors text-sm"
                 >
                   Filmes em Cartaz
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#proximos-lancamentos"
+                <Link
+                  to="/#proximos-lancamentos"
                   className="text-textSecondary hover:text-accent transition-colors text-sm"
                 >
                   Próximos Lançamentos
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

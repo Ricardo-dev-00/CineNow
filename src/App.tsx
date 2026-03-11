@@ -4,10 +4,12 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import MovieDetails from './pages/MovieDetails';
+import { ScrollToHashHandler } from './components/ScrollToHashHandler';
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
+      <ScrollToHashHandler />
       <div className="min-h-screen bg-primary text-textPrimary flex flex-col">
         <Header />
         <main className="flex-grow">

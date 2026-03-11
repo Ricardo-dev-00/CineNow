@@ -22,18 +22,18 @@ const Header: React.FC = () => {
           </Link>
 
           <nav className="hidden md:flex space-x-6">
-            <a
-              href="#em-cartaz"
+            <Link
+              to="/#em-cartaz"
               className="text-textPrimary hover:text-accent transition-colors font-medium"
             >
               Em Cartaz
-            </a>
-            <a
-              href="#proximos-lancamentos"
+            </Link>
+            <Link
+              to="/#proximos-lancamentos"
               className="text-textPrimary hover:text-accent transition-colors font-medium"
             >
               Próximos Lançamentos
-            </a>
+            </Link>
           </nav>
         </div>
       </div>

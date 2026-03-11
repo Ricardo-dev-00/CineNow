@@ -136,7 +136,7 @@ const Home: React.FC = () => {
               {/* Botão Anterior */}
               <button
                 onClick={handlePrev}
-                className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-secondary/90 hover:bg-accent text-white p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-4 group-hover:translate-x-0"
+                className="flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gradient-to-br from-blueCustom to-primary hover:from-blue-700 hover:to-blueCustom text-white p-3 rounded-full shadow-2xl border-2 border-blueCustom focus:ring-4 focus:ring-blueCustom/40 transition-all duration-300"
                 aria-label="Anterior"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -168,7 +168,7 @@ const Home: React.FC = () => {
               {/* Botão Próximo */}
               <button
                 onClick={handleNext}
-                className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-secondary/90 hover:bg-accent text-white p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0"
+                className="flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gradient-to-br from-blueCustom to-primary hover:from-blue-700 hover:to-blueCustom text-white p-3 rounded-full shadow-2xl border-2 border-blueCustom focus:ring-4 focus:ring-blueCustom/40 transition-all duration-300"
                 aria-label="Próximo"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

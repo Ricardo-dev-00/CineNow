@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useMovieDetails } from '../hooks/useMovieDetails';
 import { useMovies } from '../hooks/useMovies';
 import { useUserCity } from '../hooks/useUserCity';
@@ -359,10 +359,12 @@ const MovieDetails: React.FC = () => {
         <div className="container-app py-16">
           <div className="mb-8">
             <h2 className="text-3xl font-bold mb-2">
-              Filmes em <span className="text-accent">Cartaz</span>
+              <Link to="/\#em-cartaz" className="hover:underline focus:underline transition-colors">
+                Filmes em <span className="text-accent">Cartaz</span>
+              </Link>
             </h2>
             <p className="text-textSecondary">
-              Descubra mais filmes que estão nos cinemas agora
+              Descubra mais filmes que estão nos cinemas agora ou veja os <Link to="/\#proximos-lancamentos" className="text-accent hover:underline focus:underline transition-colors">Próximos Lançamentos</Link>
             </p>
           </div>
 
@@ -370,7 +372,7 @@ const MovieDetails: React.FC = () => {
             {/* Botão Anterior */}
             <button
               onClick={handlePrev}
-              className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-secondary/90 hover:bg-accent text-white p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-4 group-hover:translate-x-0"
+              className="flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-blueCustom hover:bg-blue-700 text-white p-3 rounded-full shadow-2xl border-2 border-blueCustom focus:ring-4 focus:ring-blueCustom/40 transition-all duration-300"
               aria-label="Anterior"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -402,7 +404,7 @@ const MovieDetails: React.FC = () => {
             {/* Botão Próximo */}
             <button
               onClick={handleNext}
-              className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-secondary/90 hover:bg-accent text-white p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0"
+              className="flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-blueCustom hover:bg-blue-700 text-white p-3 rounded-full shadow-2xl border-2 border-blueCustom focus:ring-4 focus:ring-blueCustom/40 transition-all duration-300"
               aria-label="Próximo"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

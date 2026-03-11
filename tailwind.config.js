@@ -10,6 +10,7 @@ export default {
         primary: '#0F172A',      // Azul escuro / Slate 900
         secondary: '#111827',    // Cinza escuro
         accent: '#E50914',       // Vermelho cinema
+        blueCustom: '#1472c4',   // Azul personalizado
         textPrimary: '#F9FAFB',  // Branco suave
         textSecondary: '#9CA3AF', // Cinza claro
       },
