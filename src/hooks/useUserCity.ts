@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { UserLocation } from '../types';
-import { saveToLocalStorage, getFromLocalStorage, STORAGE_KEYS } from '../utils/storage';
+import { saveToLocalStorage, getFromLocalStorage, removeFromLocalStorage, STORAGE_KEYS } from '../utils/storage';
 
 interface UseUserCityReturn {
   userCity: UserLocation | null;
@@ -20,7 +20,7 @@ export const useUserCity = (): UseUserCityReturn => {
 
   const clearUserCity = useCallback(() => {
     setUserCityState(null);
-    localStorage.removeItem(STORAGE_KEYS.USER_CITY);
+    removeFromLocalStorage(STORAGE_KEYS.USER_CITY);
   }, []);
 
   return { userCity, setUserCity, clearUserCity };

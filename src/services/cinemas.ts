@@ -3,7 +3,7 @@ import { CityData } from '../types';
 /**
  * Base de dados de cinemas por cidade
  */
-export const cinemasDatabase: Record<string, CityData> = {
+const cinemasDatabase: Record<string, CityData> = {
   'São Paulo-SP': {
     name: 'São Paulo',
     state: 'SP',

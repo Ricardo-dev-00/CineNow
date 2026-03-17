@@ -137,6 +137,7 @@ const MovieDetails: React.FC = () => {
   const handleWhatsAppShare = () => {
     if (!movie) return;
     
+    // Gera URL absoluta respeitando o BASE_URL (GitHub Pages) e localhost.
     const baseUrl = `${window.location.origin}${import.meta.env.BASE_URL}`.replace(/\/$/, '');
     const movieUrl = `${baseUrl}/movie/${movieId}`;
     

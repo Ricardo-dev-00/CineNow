@@ -8,7 +8,7 @@ export function useScrollToHash() {
     if (hash) {
       // Remove o #
       const id = hash.replace('#', '');
-      // Aguarda o DOM renderizar
+      // Aguarda um tick para garantir que a seção alvo já foi renderizada.
       setTimeout(() => {
         const el = document.getElementById(id);
         if (el) {

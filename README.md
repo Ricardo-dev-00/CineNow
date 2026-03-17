@@ -221,6 +221,10 @@ O projeto possui o workflow [`.github/workflows/main.yml`](.github/workflows/mai
 3. Garanta que a branch principal seja `main`
 4. Faça push para `main` e acompanhe em **Actions**
 
+#### URL publicada
+
+- https://ricardo-dev-00.github.io/CineNow/
+
 #### Variáveis e Segredos
 
 - `GITHUB_TOKEN`: já é fornecido automaticamente pelo GitHub Actions
