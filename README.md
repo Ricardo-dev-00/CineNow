@@ -11,7 +11,7 @@
   <br />
   <br />
   
-  **🚀 [Ver Demo ao Vivo](https://cine-now-qibf.vercel.app/)**
+  **🚀 [Ver Demo ao Vivo](https://ricardo-dev-00.github.io/CineNow/)**
 </div>
 
 <br />
@@ -83,7 +83,7 @@ Secundário:  #9CA3AF  /* Cinza claro */
 - **[TMDb API](https://www.themoviedb.org/documentation/api)** - The Movie Database API v3
 
 ### Deploy
-- **[Vercel](https://vercel.com/)** - Plataforma de deploy com CI/CD automático
+- **[GitHub Pages](https://pages.github.com/)** - Deploy estático via GitHub Actions
 
 ---
 
@@ -130,7 +130,6 @@ CineNow/
 ├── package.json            # Dependências e scripts
 ├── tailwind.config.js      # Configuração do Tailwind CSS
 ├── tsconfig.json           # Configuração do TypeScript
-├── vercel.json             # Configuração de rotas para Vercel
 └── vite.config.ts          # Configuração do Vite
 ```
 
@@ -205,30 +204,27 @@ yarn preview
 
 ## 🌍 Deploy
 
-### Deploy Automático na Vercel (Recomendado)
+### Deploy Automático no GitHub Pages (GitHub Actions)
 
-1. **Fork** este repositório ou faça push para seu GitHub
-2. Acesse [vercel.com](https://vercel.com) e faça login
-3. Clique em **"New Project"**
-4. Importe o repositório do GitHub
-5. Configure a variável de ambiente:
-   - Name: `VITE_TMDB_API_KEY`
-   - Value: Sua chave da API do TMDb
-6. Clique em **"Deploy"**
-7. Pronto! Seu app estará no ar em poucos segundos 🚀
+O projeto possui o workflow [`.github/workflows/main.yml`](.github/workflows/main.yml) com pipeline completo de **CI/CD**:
 
-### Deploy via CLI da Vercel
+- `npm ci`
+- `npm run lint`
+- `npm run test`
+- `npm run build`
+- Deploy no GitHub Pages em push para `main`
 
-```bash
-# Instale a CLI da Vercel
-npm install -g vercel
+#### Como habilitar
 
-# Execute o deploy
-vercel
+1. No GitHub, vá em **Settings > Pages**
+2. Em **Build and deployment**, selecione **Source: GitHub Actions**
+3. Garanta que a branch principal seja `main`
+4. Faça push para `main` e acompanhe em **Actions**
 
-# Para deploy em produção
-vercel --prod
-```
+#### Variáveis e Segredos
+
+- `GITHUB_TOKEN`: já é fornecido automaticamente pelo GitHub Actions
+- `VITE_TMDB_API_KEY`: configure em **Settings > Secrets and variables > Actions** para o build de produção
 
 ### Outras Plataformas
 
@@ -447,7 +443,7 @@ Desde que mantenha o aviso de copyright e a licença.
   
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ricardo-vieira-dev/)
   [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ricardo-dev-00)
-  [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white)](https://projeto-meu-portfolio-snowy.vercel.app/)
+  [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white)](https://github.com/Ricardo-dev-00)
   
 </div>
 
@@ -457,7 +453,7 @@ Desde que mantenha o aviso de copyright e a licença.
 
 - **[The Movie Database (TMDb)](https://www.themoviedb.org/)** - Por fornecer uma API incrível e gratuita
 - **[Tailwind CSS](https://tailwindcss.com/)** - Pelo framework CSS que torna estilização um prazer
-- **[Vercel](https://vercel.com/)** - Pela plataforma de deploy simplificada e poderosa
+- **[GitHub Pages](https://pages.github.com/)** - Pela hospedagem estática integrada ao GitHub Actions
 - **[React Community](https://react.dev/community)** - Por todo o suporte e recursos educacionais
 
 ---
@@ -474,6 +470,6 @@ Desde que mantenha o aviso de copyright e a licença.
   
   ---
   
-  **🚀 [Ver Projeto ao Vivo](https://cine-now-qibf.vercel.app/)** | **📂 [Código Fonte](https://github.com/Ricardo-dev-00/CineNow)**
+  **🚀 [Ver Projeto ao Vivo](https://ricardo-dev-00.github.io/CineNow/)** | **📂 [Código Fonte](https://github.com/Ricardo-dev-00/CineNow)**
   
 </div>
