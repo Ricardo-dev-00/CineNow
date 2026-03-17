@@ -41,8 +41,15 @@ jobs:
 
       - name: Build application
         env:
-          VITE_TMDB_API_KEY: ${{ secrets.VITE_TMDB_API_KEY }}
-        run: npm run build
+          TMDB_API_KEY_SECRET: ${{ secrets.VITE_TMDB_API_KEY }}
+          TMDB_API_KEY_VAR: ${{ vars.VITE_TMDB_API_KEY }}
+        run: |
+          export VITE_TMDB_API_KEY="${TMDB_API_KEY_SECRET:-$TMDB_API_KEY_VAR}"
+          if [ -z "$VITE_TMDB_API_KEY" ]; then
+            echo "Erro: defina VITE_TMDB_API_KEY em Secrets ou Variables do repositório."
+            exit 1
+          fi
+          npm run build
 
       - name: Create SPA fallback
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
